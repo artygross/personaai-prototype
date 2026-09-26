@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#05060a" />
+  <meta name="description" content="PersonaAI — прототип создания персональных AI-аватаров." />
+  <title>PersonaAI — создайте новый образ</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop stop-color='%237b2cff'/%3E%3Cstop offset='1' stop-color='%231fa6ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='%2307080d'/%3E%3Cpath d='M18 47V17h15c9 0 15 5 15 13s-6 13-15 13h-6v4zm9-12h6c4 0 6-2 6-5s-2-5-6-5h-6z' fill='url(%23g)'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell" id="app">
+    <div class="ambient" aria-hidden="true"></div>
+    <header class="topbar">
+      <button class="brand" type="button" data-go="1" aria-label="Вернуться к загрузке фото">Person<span>AI</span></button>
+      <nav class="progress" aria-label="Этапы создания аватара">
+        <button class="progress-step is-active" data-step="1" type="button"><i>1</i><span>Фото</span></button>
+        <b></b>
+        <button class="progress-step" data-step="2" type="button"><i>2</i><span>Стиль</span></button>
+        <b></b>
+        <button class="progress-step" data-step="3" type="button"><i>3</i><span>Генерация</span></button>
+        <b></b>
+        <button class="progress-step" data-step="4" type="button"><i>4</i><span>Результат</span></button>
+      </nav>
+      <div class="step-count">Шаг <span id="stepNumber">1</span> из 4</div>
+    </header>
+
+    <section class="screen screen-upload is-active" data-screen="1">
+      <div class="upload-bg image-cover" role="img" aria-label="Портрет девушки"></div>
+      <div class="left-shade"></div>
+      <div class="upload-content content-reveal">
+        <h1>Одно фото.<br>Новый образ.</h1>
+        <p class="lead">Загрузите портрет — создадим 4 аватара</p>
+        <label class="primary-button upload-button" for="photoInput">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V3m0 0 4 4m-4-4L8 7M5 13v5a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-5"/></svg>
+          <span id="uploadLabel">Выбрать фото</span>
+        </label>
+        <input id="photoInput" type="file" accept="image/jpeg,image/png" hidden />
+        <p class="file-hint" id="fileHint">JPG или PNG до 10 МБ</p>
+        <div class="tips">
+          <div><span class="tip-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c.6-4.7 3.3-7 8-7s7.4 2.3 8 7"/></svg></span><p>Один человек</p></div>
+          <div><span class="tip-icon"><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3m13 5h3a2 2 0 0 0 2-2v-3"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="10" r="1"/><path d="M9 15c2 1.5 4 1.5 6 0"/></svg></span><p>Лицо видно<br>полностью</p></div>
+          <div><span class="tip-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M1 12h3m16 0h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span><p>Ровный свет</p></div>
+        </div>
+        <div class="privacy"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>Фото удалим через 24 часа</div>
+      </div>
+    </section>
+
+    <section class="screen screen-style" data-screen="2">
+      <div class="style-backgrounds" aria-hidden="true">
+        <div class="style-bg is-active" data-style-bg="anime"></div>
+        <div class="style-bg" data-style-bg="cyberpunk"></div>
+        <div class="style-bg" data-style-bg="clay"></div>
+        <div class="style-bg" data-style-bg="pixel"></div>
+        <div class="style-bg" data-style-bg="pop"></div>
+        <div class="style-bg" data-style-bg="photo"></div>
+      </div>
+      <div class="style-shade"></div>
+      <div class="style-panel content-reveal">
+        <h2>Выберите стиль</h2>
+        <p class="lead">Создадим 4 варианта</p>
+        <div class="style-list" role="radiogroup" aria-label="Стиль аватара">
+          <button class="style-option is-selected" data-style="anime" type="button" role="radio" aria-checked="true"><img src="assets/thumb-anime.jpg" alt=""><span>Аниме</span><i>✓</i></button>
+          <button class="style-option" data-style="cyberpunk" type="button" role="radio" aria-checked="false"><img src="assets/thumb-cyber.jpg" alt=""><span>Киберпанк</span><i>✓</i></button>
+          <button class="style-option" data-style="clay" type="button" role="radio" aria-checked="false"><img src="assets/thumb-clay.jpg" alt=""><span>3D-персонаж</span><i>✓</i></button>
+          <button class="style-option" data-style="pixel" type="button" role="radio" aria-checked="false"><img src="assets/thumb-pixel.jpg" alt=""><span>Пиксель-арт</span><i>✓</i></button>
+          <button class="style-option" data-style="pop" type="button" role="radio" aria-checked="false"><img src="assets/thumb-pop.jpg" alt=""><span>Поп-арт</span><i>✓</i></button>
+          <button class="style-option" data-style="photo" type="button" role="radio" aria-checked="false"><img src="assets/thumb-photo.jpg" alt=""><span>Фотопортрет</span><i>✓</i></button>
+        </div>
+      </div>
+      <div class="style-actions content-reveal">
+        <button class="secondary-button" type="button" data-go="1">Назад</button>
+        <button class="primary-button" id="generateButton" type="button"><svg viewBox="0 0 24 24"><path d="m12 3 1.4 4.1L17.5 8.5l-4.1 1.4L12 14l-1.4-4.1-4.1-1.4 4.1-1.4zM18.5 14l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg>Создать 4 аватара</button>
+      </div>
+    </section>
+
+    <section class="screen screen-generate" data-screen="3">
+      <div class="generation-visual" aria-hidden="true">
+        <div class="particle-field"></div>
+        <div class="glass-card ghost-card"></div>
+        <div class="glass-card line-card"></div>
+        <div class="glass-card final-card"><img src="assets/result-1.png" alt=""></div>
+      </div>
+      <div class="generation-copy content-reveal">
+        <h2>Создаём ваши аватары</h2>
+        <p class="lead">Добавляем детали в стиле «<span id="generationStyle">Аниме</span>»</p>
+        <div class="generation-progress"><i id="progressFill"></i></div>
+        <strong id="progressValue">0%</strong>
+        <p class="time-left" id="timeLeft">Осталось около 20 секунд</p>
+      </div>
+    </section>
+
+    <section class="screen screen-results" data-screen="4">
+      <div class="result-layout content-reveal">
+        <figure class="result-main"><img id="mainResult" src="assets/result-1.png" alt="Выбранный аватар"><figcaption>2048 × 2048, PNG</figcaption></figure>
+        <div class="result-thumbs" role="radiogroup" aria-label="Варианты аватара">
+          <button class="result-thumb is-selected" data-result="assets/result-1.png" type="button" role="radio" aria-checked="true"><img src="assets/result-1.png" alt="Вариант 1"><i>✓</i></button>
+          <button class="result-thumb" data-result="assets/result-2.png" type="button" role="radio" aria-checked="false"><img src="assets/result-2.png" alt="Вариант 2"><i>✓</i></button>
+          <button class="result-thumb" data-result="assets/result-3.png" type="button" role="radio" aria-checked="false"><img src="assets/result-3.png" alt="Вариант 3"><i>✓</i></button>
+          <button class="result-thumb" data-result="assets/result-4.png" type="button" role="radio" aria-checked="false"><img src="assets/result-4.png" alt="Вариант 4"><i>✓</i></button>
+        </div>
+        <div class="result-actions">
+          <h2>Аватары готовы</h2>
+          <p class="lead">Выберите вариант и сохраните его</p>
+          <a class="primary-button" id="downloadButton" href="assets/result-1.png" download="personaai-avatar.png"><svg viewBox="0 0 24 24"><path d="m12 3 1.4 4.1L17.5 8.5l-4.1 1.4L12 14l-1.4-4.1-4.1-1.4 4.1-1.4zM18.5 14l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg>Скачать</a>
+          <button class="secondary-button share-button" id="shareButton" type="button"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5"/></svg><span>Поделиться</span></button>
+          <hr>
+          <button class="secondary-button" type="button" data-go="2">Другой стиль</button>
+          <button class="secondary-button" type="button" data-go="1">Другое фото</button>
+        </div>
+      </div>
+    </section>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
