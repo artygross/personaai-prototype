@@ -4,6 +4,7 @@ const stepNumber=document.querySelector('#stepNumber');
 const input=document.querySelector('#photoInput');
 const uploadBg=document.querySelector('.upload-bg');
 const sourcePhoto=document.querySelector('#sourcePhoto');
+const generationVisual=document.querySelector('.generation-visual');
 const uploadLabel=document.querySelector('#uploadLabel');
 const fileHint=document.querySelector('#fileHint');
 const styleNames={anime:'Аниме',cyberpunk:'Киберпанк',clay:'3D-персонаж',pixel:'Пиксель-арт',pop:'Поп-арт',photo:'Фотопортрет'};
@@ -33,6 +34,7 @@ input.addEventListener('change',()=>{
   uploadBg.style.backgroundImage=`url("${url}")`;
   uploadBg.style.backgroundPosition='68% center';
   sourcePhoto.style.backgroundImage=`url("${url}")`;
+  generationVisual.style.setProperty('--source-url',`url("${url}")`);
   uploadLabel.textContent='Фото выбрано';fileHint.textContent=file.name;
   setTimeout(()=>setStep(2),650);
 });

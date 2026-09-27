@@ -29,3 +29,14 @@ h1,h2{font-weight:800}.lead{font-weight:400}.brand{font-weight:700}.progress-ste
 .source-photo span{position:absolute;z-index:1;left:0;right:0;height:2px;top:-4%;background:linear-gradient(90deg,transparent,rgba(80,188,255,.1),#3cd5ff,rgba(155,92,255,.55),transparent);box-shadow:0 0 22px #39c9ff;animation:sourceScan 4.8s ease-in-out infinite}
 .screen.is-active .source-photo{opacity:.82}
 @keyframes sourceScan{0%{top:-4%;opacity:0}12%{opacity:1}82%{opacity:.9}100%{top:104%;opacity:0}}
+.source-photo{display:none}
+.glass-card .card-photo{position:absolute;inset:0;display:block;background-image:var(--source-url);background-size:cover;background-position:center;background-repeat:no-repeat}
+.glass-card .card-particles{position:absolute;inset:-8%;display:block;border-radius:50%;background-image:radial-gradient(circle,rgba(130,195,255,.95) 0 1px,transparent 2px),radial-gradient(circle,rgba(146,93,255,.75) 0 1px,transparent 2px);background-size:23px 27px,37px 41px;mask-image:radial-gradient(ellipse at 50% 50%,#000 0 35%,transparent 72%);opacity:.45;mix-blend-mode:screen;animation:cardParticles 7s linear infinite}
+.ghost-card .card-photo{opacity:.1;filter:grayscale(1) blur(3px);transform:scale(1.08)}
+.ghost-card .card-particles{opacity:.82;filter:blur(1px);animation-duration:10s}
+.line-card .card-photo{opacity:.24;filter:grayscale(.65) contrast(1.25) blur(1px)}
+.line-card .card-particles{opacity:.62;transform:rotate(18deg);animation-duration:8s}
+.final-card .card-photo{opacity:.48;filter:grayscale(.15) brightness(.8)}
+.final-card .card-particles{opacity:.26;animation-duration:6s}
+.glass-card .card-photo,.glass-card .card-particles{border-radius:inherit}
+@keyframes cardParticles{to{background-position:46px 54px,-58px 64px}}
