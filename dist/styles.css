@@ -21,6 +21,6 @@ h1,h2{font-weight:600}.lead{font-weight:400}.brand{font-weight:700}.progress-ste
 .tips>div:hover .tip-icon{transform:none;border-color:rgba(255,255,255,.1)}
 .screen-generate{background:radial-gradient(circle at 72% 48%,#111d45 0%,#080b19 24%,#020306 58%,#030407 100%)}
 .screen-results{background:#030407}
-.left-shade{background:linear-gradient(90deg,#030407 0%,#030407 45%,rgba(3,4,7,.92) 56%,rgba(3,4,7,.18) 72%,rgba(3,4,7,.04) 100%),linear-gradient(0deg,rgba(3,4,7,.45),transparent 45%)}
+.left-shade{background:linear-gradient(90deg,rgba(3,4,7,.98) 0%,rgba(3,4,7,.9) 30%,rgba(3,4,7,.35) 45%,rgba(3,4,7,.04) 58%,transparent 68%),linear-gradient(0deg,rgba(3,4,7,.18),transparent 45%)}
 @media (max-width:1500px),(max-height:850px){.topbar{min-height:68px}.progress-step i{width:34px;height:34px}.progress>b{margin-top:17px}.style-option{width:290px;grid-template-columns:118px 1fr;min-height:68px}.style-option img{width:118px;border-radius:15px}.style-option i{left:102px;width:30px;height:30px}.upload-content{top:20vh}.tips{gap:32px}.tip-icon{width:64px;height:64px}.privacy{margin-top:2.4vh;padding-top:2.4vh}.result-layout{top:14.5vh;grid-template-columns:minmax(500px,1.55fr) minmax(120px,.34fr) minmax(340px,.9fr)}.result-actions .primary-button,.result-actions .secondary-button{min-height:65px}.result-thumb{border-radius:18px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
