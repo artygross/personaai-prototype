@@ -40,3 +40,4 @@ h1,h2{font-weight:800}.lead{font-weight:400}.brand{font-weight:700}.progress-ste
 .final-card .card-particles{opacity:.26;animation-duration:6s}
 .glass-card .card-photo,.glass-card .card-particles{border-radius:inherit}
 @keyframes cardParticles{to{background-position:46px 54px,-58px 64px}}
+.progress-step.is-complete i::after{position:relative;left:-1px;top:-2px}
