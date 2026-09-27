@@ -16,7 +16,7 @@ html,body,.app-shell{background:#030407;font-family:Manrope,-apple-system,BlinkM
 .screen{transform:none;transition:opacity .35s ease,visibility 0s .35s}
 .screen.is-active{transform:none}
 .content-reveal,.screen.is-active .content-reveal{opacity:1;transform:none;transition:none}
-h1,h2{font-weight:600}.lead{font-weight:400}.brand{font-weight:700}.progress-step.is-active span,.style-option.is-selected span{font-weight:500}
+h1,h2{font-weight:800}.lead{font-weight:400}.brand{font-weight:700}.progress-step.is-active span,.style-option.is-selected span{font-weight:500}
 .tip-icon{transition:none}
 .tips>div:hover .tip-icon{transform:none;border-color:rgba(255,255,255,.1)}
 .screen-generate{background:radial-gradient(circle at 72% 48%,#111d45 0%,#080b19 24%,#020306 58%,#030407 100%)}
