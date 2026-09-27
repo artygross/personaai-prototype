@@ -6,7 +6,7 @@ const uploadBg=document.querySelector('.upload-bg');
 const uploadLabel=document.querySelector('#uploadLabel');
 const fileHint=document.querySelector('#fileHint');
 const styleNames={anime:'Аниме',cyberpunk:'Киберпанк',clay:'3D-персонаж',pixel:'Пиксель-арт',pop:'Поп-арт',photo:'Фотопортрет'};
-let currentStep=1,selectedStyle='anime',progressTimer,selectedResult='assets/result-1.png';
+let currentStep=1,selectedStyle='anime',progressTimer,selectedResult='assets/result-1.jpg';
 
 function setStep(next){
   const n=Math.max(1,Math.min(4,Number(next)));
