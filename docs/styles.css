@@ -42,7 +42,8 @@ h1,h2{font-weight:800}.lead{font-weight:400}.brand{font-weight:700}.progress-ste
 @keyframes cardParticles{to{background-position:46px 54px,-58px 64px}}
 .progress-step.is-complete i::after{position:relative;left:-1px;top:-2px}
 .progress{gap:12px}
-.progress-step{width:104px;flex:0 0 104px}
+.progress-step{width:40px;flex:0 0 40px}
+.progress-step span{white-space:nowrap;overflow:visible}
 .progress>b{width:72px;flex:0 0 72px}
 .style-bg,.style-bg.is-active{transform:none}
 .style-bg{transition:opacity .32s ease}
