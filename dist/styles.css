@@ -44,3 +44,5 @@ h1,h2{font-weight:800}.lead{font-weight:400}.brand{font-weight:700}.progress-ste
 .progress{gap:12px}
 .progress-step{width:104px;flex:0 0 104px}
 .progress>b{width:72px;flex:0 0 72px}
+.style-bg,.style-bg.is-active{transform:none}
+.style-bg{transition:opacity .32s ease}

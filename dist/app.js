@@ -8,7 +8,7 @@ const generationVisual=document.querySelector('.generation-visual');
 const uploadLabel=document.querySelector('#uploadLabel');
 const fileHint=document.querySelector('#fileHint');
 const styleNames={anime:'Аниме',cyberpunk:'Киберпанк',clay:'3D-персонаж',pixel:'Пиксель-арт',pop:'Поп-арт',photo:'Фотопортрет'};
-let currentStep=1,selectedStyle='anime',progressTimer,selectedResult='assets/result-1.jpg';
+let currentStep=1,selectedStyle='anime',progressTimer,styleHoverTimer,selectedResult='assets/result-1.jpg';
 
 function setStep(next){
   const n=Math.max(1,Math.min(4,Number(next)));
@@ -44,8 +44,14 @@ function showStyleBackground(style){
 }
 
 document.querySelectorAll('.style-option').forEach(option=>{
-  option.addEventListener('pointerenter',()=>showStyleBackground(option.dataset.style));
-  option.addEventListener('pointerleave',()=>showStyleBackground(selectedStyle));
+  option.addEventListener('pointerenter',()=>{
+    clearTimeout(styleHoverTimer);
+    styleHoverTimer=setTimeout(()=>showStyleBackground(option.dataset.style),160);
+  });
+  option.addEventListener('pointerleave',()=>{
+    clearTimeout(styleHoverTimer);
+    styleHoverTimer=setTimeout(()=>showStyleBackground(selectedStyle),90);
+  });
   option.addEventListener('click',()=>{
     selectedStyle=option.dataset.style;
     document.querySelectorAll('.style-option').forEach(el=>{const active=el===option;el.classList.toggle('is-selected',active);el.setAttribute('aria-checked',String(active))});
