@@ -39,12 +39,20 @@ input.addEventListener('change',()=>{
   setTimeout(()=>setStep(2),650);
 });
 
-document.querySelectorAll('.style-option').forEach(option=>option.addEventListener('click',()=>{
-  selectedStyle=option.dataset.style;
-  document.querySelectorAll('.style-option').forEach(el=>{const active=el===option;el.classList.toggle('is-selected',active);el.setAttribute('aria-checked',String(active))});
-  document.querySelectorAll('.style-bg').forEach(bg=>bg.classList.toggle('is-active',bg.dataset.styleBg===selectedStyle));
-  document.querySelector('#generationStyle').textContent=styleNames[selectedStyle];
-}));
+function showStyleBackground(style){
+  document.querySelectorAll('.style-bg').forEach(bg=>bg.classList.toggle('is-active',bg.dataset.styleBg===style));
+}
+
+document.querySelectorAll('.style-option').forEach(option=>{
+  option.addEventListener('pointerenter',()=>showStyleBackground(option.dataset.style));
+  option.addEventListener('pointerleave',()=>showStyleBackground(selectedStyle));
+  option.addEventListener('click',()=>{
+    selectedStyle=option.dataset.style;
+    document.querySelectorAll('.style-option').forEach(el=>{const active=el===option;el.classList.toggle('is-selected',active);el.setAttribute('aria-checked',String(active))});
+    showStyleBackground(selectedStyle);
+    document.querySelector('#generationStyle').textContent=styleNames[selectedStyle];
+  });
+});
 
 function startGeneration(){
   const fill=document.querySelector('#progressFill'),value=document.querySelector('#progressValue'),time=document.querySelector('#timeLeft');
